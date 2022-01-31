@@ -3,7 +3,8 @@
 
 function fObj() {
     for (let key in obj) {
-        console.log (key);
+        
+        console.log (obj);   //сначала сделал только (key),  но перечитал задание, что нужны и значения тоже..
     };
 
 };
