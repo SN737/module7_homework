@@ -39,8 +39,8 @@ let teapot = {
 
 lamp.isOn(10);
 teapot.isOff(100);
-setTimeout(console.log(`Включаем ${this.name}`), 3000)
-setTimeout(console.log(`${this.name} греется`), this.time)
+setTimeout(console.log(`Включаем ${teapot.name}`), 3000);
+setTimeout(console.log(`${teapot.name} греется`), this.time);
 teapot.warmingWater(1.2);
 
 
