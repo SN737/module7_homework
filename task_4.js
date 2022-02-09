@@ -1,3 +1,4 @@
+
 const device = {
     electric: true,
     heating: true,
@@ -13,6 +14,18 @@ const device = {
     }
    
 };
+
+function boilingWater (startTemp) {
+    let waterTemp = startTemp*10;
+    console.log(`температура воды: ${waterTemp}`);
+    if (waterTemp < 100) {
+        setTimeout(boilingWater, 1000, ++startTemp);
+    }
+    if (waterTemp >= 100) {
+        teapot.warmingWater(1.2);
+    }
+}
+
 
 
 let lamp = {
@@ -36,16 +49,20 @@ let teapot = {
 };
 
 
-
+console.log('Включаем лампу на 10 секунд');
 lamp.isOn(10);
+console.log('----------------------------------------');
+console.log('Электрочайник 100 сек в состоянии выключено');
+
+console.log('----------------------------------------');
+
 teapot.isOff(100);
+console.log('------Теперь включим электрочайник------');
 console.log(`Включаем ${teapot.name}`);
-setTimeout(console.log, 3000, `${teapot.name} греется`);
+setTimeout(console.log, 1000, `${teapot.name} греется`);
+setTimeout(boilingWater, 1000, 2);
 
 
-
-
-teapot.warmingWater(1.2);
 
 
 
