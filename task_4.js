@@ -12,7 +12,6 @@ const device = {
         console.log (`Потреблено ${consumption} Вт, за  ${time} секунд.`);
         console.log (`устройство ${this.name} выключено и не потребляет энергию.`);
     }
-   
 };
 
 function boilingWater (startTemp) {
@@ -27,10 +26,9 @@ function boilingWater (startTemp) {
 }
 
 
-
 let lamp = {
     name: "Лампа",
-    lighting: true,
+    lighting: 800,
     power: 20,
     __proto__: device
 };
@@ -38,12 +36,11 @@ let lamp = {
 
 let teapot = {
     name: "Электрочайник",
-    lighting: false,
+    capacity: 2,
     power: 1900,
     warmingWater: function (waterQty) {
         let time = this.power/waterQty*0.001;  //условно, расчёт времени на нагрев исходя из мощности и количества 
         this.isOn(time);
-
     },
     __proto__: device
 };
