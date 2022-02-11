@@ -59,6 +59,8 @@ console.log(`Включаем ${teapot.name}`);
 setTimeout(console.log, 1000, `${teapot.name} греется`);
 setTimeout(boilingWater, 1000, 2);
 
+//console.log(device instanceof Object);
+
 
 
 
