@@ -48,6 +48,9 @@ let teapot = {
 
 console.log('Включаем лампу на 10 секунд');
 lamp.isOn(10);
+lamp.isOff(0);
+console.log('----------------------------------------');
+
 console.log('----------------------------------------');
 console.log('Электрочайник 100 сек в состоянии выключено');
 
@@ -60,10 +63,6 @@ setTimeout(console.log, 1000, `${teapot.name} греется`);
 setTimeout(boilingWater, 1000, 2);
 
 //console.log(device instanceof Object);
-
-
-
-
 
 
 
