@@ -1,8 +1,10 @@
 /*Написать функцию, которая создает пустой объект, но без прототипа.*/
 
 function obj() {
-    let nObj = new Object();
+    let nObj = {};
+    return nObj;
 }
 
-obj();
+
+console.log(obj());
 
