@@ -9,8 +9,9 @@ const  myCar = {
     type: "TFSI"
 };
 
-function fObj() {
-    console.log ("model" in myCar)
+function fObj(str, obj) {
+    let result = str in obj;
+    return console.log(result);
 };
 
-fObj(myCar)
+fObj('model', myCar);
