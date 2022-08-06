@@ -2,7 +2,7 @@
 а затем проверяет есть ли у переданного объекта свойство с данным именем. 
 Функция должна возвращать true или false.*/
 
-const  myCar = {
+const  theCar = {
     make: "Audi",
     model: "A4",
     year: 2011,
@@ -11,7 +11,8 @@ const  myCar = {
 
 function fObj(str, obj) {
     let result = str in obj;
-    return console.log(result);
+    return console.log(result);    
 };
 
-fObj('model', myCar);
+fObj('model', theCar);
+

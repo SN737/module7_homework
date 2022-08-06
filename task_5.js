@@ -2,7 +2,7 @@ let qty = 0;
 let qtyOn = 0;
 
 class Device {
-    constructor (deviceName, deviceType, power) {
+    constructor(deviceName, deviceType, power) {
         this.name = deviceName;
         this.type = deviceType;
         this.power = power;
@@ -10,28 +10,21 @@ class Device {
         this.heating = 'true';
         qty++;
     }
-    isOn (time) {
+    isOn(time) {
         let consumption = this.power*(time/3600);
         consumption = consumption.toFixed(2);
         qtyOn++;
         const  stateOn = `Устройством ${this.type} ${this.name} потреблено ${consumption} Вт, за  ${time} секунд`;
         return stateOn;
     }
-    isOff () {
-        //let consumption = this.power*0;
+    isOff() {        
         let stateoff = `Устройство ${this.type} ${this.name} выключено и не потребляет энергию.`;
         return stateoff;
     }
-    static showQtyDevices (){
+    static showQtyDevices(){
         console.log('количество устройств ' + qty);
-        return 'Суммарное количество включений ' + qtyOn;   //бессмысленный метод, но что бы попробовать static
+        return 'Суммарное количество включений ' + qtyOn;   //бессмысленный метод, ради того чтобы попробовать static
     }    
-}
-
-class Entertainment extends Device {
-    constructor(){
-    this.hasScreen = true;
-    }
 }
 
 class Kitchenappliances extends Device {
@@ -39,9 +32,8 @@ class Kitchenappliances extends Device {
         super(deviceName, deviceType, power);
         this.capacity = capacity;        
     }
-
     warmingWater(waterQty) {
-        let time = this.power/waterQty*25;  //условно, расчёт времени на нагрев исходя из мощности и количества 
+        let time = this.power/waterQty*25;  //крайне условно, расчёт времени на нагрев исходя из мощности и количества 
         let consumption  = this.isOn(time); 
         const result = `${consumption} нагрето ${waterQty} мл жидкости.`;
         return result;
