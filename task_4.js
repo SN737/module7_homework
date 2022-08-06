@@ -15,6 +15,7 @@ const device = {
 };
 
 function boilingWater (startTemp) {
+    console.log(startTemp);
     let waterTemp = startTemp*10;
     console.log(`температура воды: ${waterTemp}`);
     if (waterTemp < 100) {
@@ -62,22 +63,3 @@ console.log(`Включаем ${teapot.name}`);
 setTimeout(console.log, 1000, `${teapot.name} греется`);
 setTimeout(boilingWater, 1000, 2);
 
-//console.log(device instanceof Object);
-
-
-
-
-
-
-
-
-
-
-
-
-/*function Device(name) {
-this.name = name;
-this.isOn = false;
-this.type = electric;
-
-}*/

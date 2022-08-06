@@ -3,8 +3,9 @@
 
 function fObj(obj) {
     for (let key in obj) {
-        
-        console.log (obj);   //сначала сделал только (key),  но перечитал задание, что нужны и значения тоже..
+        if (obj.hasOwnProperty(key)){
+        console.log (obj);
+        }  
     };
 
 };

@@ -1,7 +1,6 @@
 let qty = 0;
 let qtyOn = 0;
 
-
 class Device {
 
     constructor (deviceName, deviceType, power) {
@@ -16,48 +15,54 @@ class Device {
     isOn (time) {
         
         let consumption = this.power*(time/3600);
-        console.log (`Потреблено ${consumption} Вт, за  ${time} секунд`);
+        consumption = consumption.toFixed(2);
+        //console.log (`Потреблено ${consumption} Вт, за  ${time} секунд`);
         qtyOn++;
+        const  stateOn = `Устройством ${this.type} ${this.name} потреблено ${consumption} Вт, за  ${time} секунд`;
+        return stateOn;
     }
-    isOff (time) {
-        let consumption = this.power*time*0;
-        console.log (`Потреблено ${consumption} Вт, за  ${time} секунд.`);
-        console.log (`устройство ${this.name} выключено и не потребляет энергию.`);
+    isOff () {
+        let consumption = this.power*0;
+        //console.log (`Потреблено ${consumption} Вт, за  ${time} секунд.`);
+        //console.log (`устройство ${this.name} выключено и не потребляет энергию.`);
+        let stateoff = `Устройство ${this.type} ${this.name} выключено и не потребляет энергию.`;
+        return stateoff;
     }
 
     static showQtyDevices (){
         console.log('количество устройств ' + qty);
         return 'Суммарное количество включений ' + qtyOn;   //бессмысленный метод, но что бы попробовать static
-    }
+    }    
+}
 
-    
+class Entertainment extends Device {
+    constructor(){
+    this.hasScreen = true;
+    }
 }
 
 class Kitchenappliances extends Device {
+    constructor (deviceName, deviceType, power, capacity) {
+        super(deviceName, deviceType, power);
+        this.capacity = capacity;
+        
+    }
+
+
     warmingWater(waterQty) {
-        let time = this.power/waterQty*0.001;  //условно, расчёт времени на нагрев исходя из мощности и количества 
-        this.isOn(time);
-        return time;
+        let time = this.power/waterQty*25;  //условно, расчёт времени на нагрев исходя из мощности и количества 
+        let consumption  = this.isOn(time); 
+        const result = `${consumption} нагрето ${waterQty} мл жидкости.`;
+        return result;
     }
 }
 
 
-// const Device.kitchen {
-
-// }
-
-let tableLamp = new Device('Ikea', 'lamp', 50);
-let teapot = new Kitchenappliances('Philips', 'teapot', 1500);
-let coffMachine = new Kitchenappliances('Miele', 'coffeemachine', 2000);
-
-// console.log(ndevice);
-// ndevice.isOn(100)
+const tableLamp = new Device('Ikea', 'lamp', 50);
+const teapot = new Kitchenappliances('Philips', 'teapot', 1500, 2700);
+const coffMachine = new Kitchenappliances('Miele', 'coffeemachine', 2000, 800);
 
 console.log(teapot.warmingWater(500));
-
-let x = teapot.isOn instanceof Device;
-let y = teapot.hasOwnProperty ('warmingWater')
-console.log(y);
-
-
+console.log(coffMachine.isOff());
+console.log(tableLamp.isOn(120));
 console.log(Device.showQtyDevices());
