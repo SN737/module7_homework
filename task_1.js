@@ -6,8 +6,8 @@ function fObj(obj) {
         if (obj.hasOwnProperty(key)){
         console.log (obj);
         }  
-    };
+    }
 
-};
+}
 const obj = {a:1, b:"word"};
 fObj(obj);

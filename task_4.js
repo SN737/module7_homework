@@ -4,8 +4,7 @@ const device = {
     heating: true,
     isOn: function (time) {
         let consumption = this.power*time;
-        console.log (`Потреблено ${consumption} Вт, за  ${time} секунд`);
-        
+        console.log (`Потреблено ${consumption} Вт, за  ${time} секунд`);    
     },
     isOff:function(time) {
         let consumption = this.power*time*0;
@@ -26,7 +25,6 @@ function boilingWater (startTemp) {
     }
 }
 
-
 let lamp = {
     name: "Лампа",
     lighting: 800,
@@ -34,29 +32,21 @@ let lamp = {
     __proto__: device
 };
 
-
 let teapot = {
     name: "Электрочайник",
     capacity: 2,
     power: 1900,
     warmingWater: function (waterQty) {
-        let time = this.power/waterQty*0.001;  //условно, расчёт времени на нагрев исходя из мощности и количества 
+        let time = this.power/waterQty*25;  //условно, расчёт времени на нагрев исходя из мощности и количества 
         this.isOn(time);
     },
     __proto__: device
 };
 
-
 console.log('Включаем лампу на 10 секунд');
 lamp.isOn(10);
 lamp.isOff(0);
-console.log('----------------------------------------');
-
-console.log('----------------------------------------');
 console.log('Электрочайник 100 сек в состоянии выключено');
-
-console.log('----------------------------------------');
-
 teapot.isOff(100);
 console.log('------Теперь включим электрочайник------');
 console.log(`Включаем ${teapot.name}`);
