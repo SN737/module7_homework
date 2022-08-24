@@ -9,10 +9,15 @@ const  theCar = {
     type: "TFSI"
 };
 
-function fObj(str, obj) {
-    let result = str in obj;
-    return console.log(result);    
-};
+// function fObj(str, obj) {
+//     let result = str in obj;
+//     return console.log(result);    
+// };
 
-fObj('model', theCar);
+console.log(fObj('model', theCar));
+
+function fObj(str, obj){
+    let result = str in obj;
+                return result;       
+    }
 
